@@ -13,7 +13,7 @@ const Login = () => {
     const navigate = useNavigate("/")
     const handleSubmit = async (values, { resetForm }) => {
         try {
-            const res = await axios.post('http://localhost:5000/auth/login', values);
+            const res = await axios.post('https://task-backend-gilt-psi.vercel.app/auth/login', values);
             alert('Login successful');
             console.log(res.data); // store token if needed
             const token = res.data

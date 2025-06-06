@@ -32,7 +32,7 @@ const Blog = () => {
     const fetchBlogs = async () => {
         try {
 
-            const res = await axios.get("http://localhost:5000/blog/get", {
+            const res = await axios.get("https://task-backend-gilt-psi.vercel.app/blog/get", {
                 headers: {
                     'Authorization': `Bearer ${token}`,
                     'Content-Type': 'multipart/form-data',
@@ -56,7 +56,7 @@ const Blog = () => {
     }
 
     const handleDelete = async () => {
-        await axios.delete(`http://localhost:5000/blog/delete/${id}`, {
+        await axios.delete(`https://task-backend-gilt-psi.vercel.app/blog/delete/${id}`, {
             headers: {
                 'Authorization': `Bearer ${token}`,
                 'Content-Type': 'multipart/form-data',
@@ -90,7 +90,7 @@ const Blog = () => {
 
         try {
             if (selectedBlog) {
-                await axios.put(`http://localhost:5000/blog/update/${selectedBlog._id}`, formData, {
+                await axios.put(`https://task-backend-gilt-psi.vercel.app/blog/update/${selectedBlog._id}`, formData, {
                     headers: {
                         'Authorization': `Bearer ${token}`,
                         'Content-Type': 'multipart/form-data',
@@ -102,7 +102,7 @@ const Blog = () => {
                 })
                 console.log("Blog updated")
             } else {
-                await axios.post("http://localhost:5000/blog/create", formData, {
+                await axios.post("https://task-backend-gilt-psi.vercel.app/blog/create", formData, {
                     headers: {
                         'Authorization': `Bearer ${token}`,
                         'Content-Type': 'multipart/form-data',
@@ -201,13 +201,13 @@ const Blog = () => {
                             <td>
                                 {blog.mediatype.startsWith("image") ? (
                                     <img
-                                        src={`http://localhost:5000/${blog.media}`}
+                                        src={`https://task-backend-gilt-psi.vercel.app/${blog.media}`}
                                         alt={blog.title}
                                         height="80px"
                                     />
                                 ) : blog.mediatype.startsWith("video") ? (
                                     <video height="80" controls>
-                                        <source src={`http://localhost:5000/${blog.media}`} type={blog.mediatype} />
+                                        <source src={`https://task-backend-gilt-psi.vercel.app/${blog.media}`} type={blog.mediatype} />
                                         Your browser does not support video
                                     </video>
                                 ) : (
