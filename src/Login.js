@@ -27,6 +27,7 @@ const Login = () => {
             resetForm();
             navigate("/blog")
         } catch (error) {
+            alert(error.response.data)
             alert('Login failed', error.responce.data);
             console.error(error.responce.data);
         }

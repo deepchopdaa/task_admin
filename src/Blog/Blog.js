@@ -40,8 +40,9 @@ const Blog = () => {
             })
             console.log(res.data)
             setBlogs(res.data)
-        } catch (err) {
-            console.error("Fetch blogs error", err)
+        } catch (error) {
+            alert(error.response.data)
+            console.error("Fetch blogs error", error)
         }
     }
 
@@ -63,8 +64,9 @@ const Blog = () => {
             }
         }).then((res) => {
             console.log(res.data)
-        }).catch((e) => {
-            console.log("Delete Error", e)
+        }).catch((error) => {
+            alert(error.response.data)
+            console.log("Delete Error", error)
             alert("Delete Blog Failed")
         })
         handleClose()
@@ -97,7 +99,8 @@ const Blog = () => {
                     }
                 }).then(() => {
                     console.log("Delete Blog sucessful")
-                }).catch((e) => {
+                }).catch((error) => {
+                    alert(error.response.data)
                     alert("Update Block Error!")
                 })
                 console.log("Blog updated")
@@ -109,7 +112,8 @@ const Blog = () => {
                     }
                 }).then(() => {
                     console.log("ADD Blog sucessful")
-                }).catch((e) => {
+                }).catch((error) => {
+                    alert(error.response.data)
                     alert("ADD Block Error!")
                 })
                 console.log("Blog created")
@@ -117,8 +121,9 @@ const Blog = () => {
             fetchBlogs()
             resetForm()
             setShowForm(false)
-        } catch (e) {
-            console.error("Submit error", e)
+        } catch (error) {
+            console.error("Submit error", error)
+            alert(error.response.data)
         }
     }
 
