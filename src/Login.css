@@ -1,0 +1,25 @@
+.login-bg {
+    background: linear-gradient(to right, #ece9e6, #ffffff);
+    min-height: 100vh;
+    padding: 40px 0;
+}
+
+.login-card {
+    border-radius: 20px;
+    background: #fff;
+    border: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.login-card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+label {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.text-danger {
+    margin-top: 2px;
+}
