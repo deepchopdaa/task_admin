@@ -204,21 +204,25 @@ const Blog = () => {
                             <td>{blog.title}</td>
                             <td>{blog.description}</td>
                             <td>
-                                {blog.mediatype.startsWith("image") ? (
+                                {["jpg", "jpeg", "png", "gif"].some(ext => blog.mediatype?.toLowerCase().endsWith(ext)) ? (
                                     <img
-                                        src={`https://task-backend-gilt-psi.vercel.app/${blog.media}`}
+                                        src={blog.media}
                                         alt={blog.title}
                                         height="80px"
+                                        style={{ objectFit: 'cover', borderRadius: '8px' }}
                                     />
-                                ) : blog.mediatype.startsWith("video") ? (
-                                    <video height="80" controls>
-                                        <source src={`https://task-backend-gilt-psi.vercel.app/${blog.media}`} type={blog.mediatype} />
-                                        Your browser does not support video
+                                ) : ["mp4", "webm"].some(ext => blog.mediatype?.toLowerCase().endsWith(ext)) ? (
+                                    <video height="80" controls style={{ borderRadius: '8px' }}>
+                                        <source src={blog.media} type={`video/${blog.mediatype.split('.').pop()}`} />
+                                        Your browser does not support the video tag.
                                     </video>
                                 ) : (
-                                    <a href={blog.media} target="_blank" rel="noopener noreferrer">View Media</a>
+                                    <a href={blog.media} target="_blank" rel="noopener noreferrer">
+                                        View Media
+                                    </a>
                                 )}
                             </td>
+
                             <td>
                                 <Button variant="warning" onClick={() => handleEdit(blog)}>Edit</Button>
                             </td>
