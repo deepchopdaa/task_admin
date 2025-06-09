@@ -18,12 +18,11 @@ const Login = () => {
         try {
             const res = await axios.post('https://task-backend-gilt-psi.vercel.app/auth/login', values);
             const token = res.data;
-
+            console.log(res.status)
             if (res.status === 400) {
                 alert(res.data);
                 return;
             }
-
             alert('Login successful');
             localStorage.setItem("token", token.token);
             resetForm();
